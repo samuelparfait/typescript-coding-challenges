@@ -31,7 +31,7 @@ type MockData = {
   id: number;
   name: string;
   age: number;
-  side?: 'light' | 'dark';
+  mood?: 'happy' | 'sad';
 };
 ```
 

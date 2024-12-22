@@ -6,14 +6,14 @@ type MockData = {
   id: number;
   name: string;
   age: number;
-  side?: 'light' | 'dark';
+  mood?: 'happy' | 'sad';
 };
 
 describe('uniqueBy', () => {
   it('should return the same array if there are no duplicates', () => {
     const mockData = [
-      { id: 2, name: 'Anakin', age: 10 },
-      { id: 0, name: 'Obi-Wan', side: 'light', age: 25 },
+      { id: 2, name: 'Mickey Mouse', age: 10 },
+      { id: 0, name: 'Donald Duck', age: 25, mood: 'happy' },
     ];
 
     const result = uniqueBy('id', mockData);
@@ -23,14 +23,14 @@ describe('uniqueBy', () => {
 
   it('should deduplicate objects based on the provided key', () => {
     const mockData = [
-      { id: 2, name: 'Anakin', age: 10 },
-      { id: 0, name: 'Obi-Wan', side: 'light', age: 25 },
-      { id: 2, name: 'Darth Vader', side: 'dark' },
+      { id: 2, name: 'Mickey Mouse', age: 10 },
+      { id: 0, name: 'Donald Duck', mood: 'happy', age: 25 },
+      { id: 2, name: 'Goofy', mood: 'sad' },
     ];
 
     const mockOuput = [
-      { id: 2, name: 'Anakin', age: 10 },
-      { id: 0, name: 'Obi-Wan', side: 'light', age: 25 },
+      { id: 2, name: 'Mickey Mouse', age: 10 },
+      { id: 0, name: 'Donald Duck', age: 25, mood: 'happy' },
     ];
 
     const result = uniqueBy('id', mockData);
@@ -39,9 +39,9 @@ describe('uniqueBy', () => {
 
   it('should not mutate the original array', () => {
     const mockData = [
-      { id: 2, name: 'Anakin', age: 10 },
-      { id: 0, name: 'Obi-Wan', side: 'light', age: 25 },
-      { id: 2, name: 'Darth Vader', side: 'dark' },
+      { id: 2, name: 'Mickey Mouse', age: 10 },
+      { id: 0, name: 'Donald Duck', mood: 'happy', age: 25 },
+      { id: 2, name: 'Goofy', mood: 'sad' },
     ];
 
     const newMockData = [...mockData];

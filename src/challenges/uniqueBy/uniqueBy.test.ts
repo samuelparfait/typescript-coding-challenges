@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'bun:test';
 
-import { uniqueBy } from '@/index';
+import { uniqueBy } from '@/challenges/uniqueBy/uniqueBy';
 
 type MockData = {
   id: number;

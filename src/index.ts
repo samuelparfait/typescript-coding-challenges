@@ -12,12 +12,18 @@ console.log(`
   `);
 
 import express from 'express';
+import cors from 'cors';
 
 const app = express();
 
 app.use(express.json());
+app.use(cors({ origin: ['https://bee7-149-107-71-118.ngrok-free.app'] }));
 
-app.post('/webhook', (request, response) => {
+app.get('/api/webhook', (request, response) => {
+  response.status(200).send('Ok');
+});
+
+app.post('/api/webhook', (request, response) => {
   response.status(202).send('Accepted');
 
   const githubEvent = request.headers['x-github-event'];

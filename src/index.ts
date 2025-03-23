@@ -32,7 +32,7 @@ app.post('/api/webhook', (req, res) => {
     const data = req.body;
     const action = data.action;
 
-    console.log(data.payload);
+    console.log({ webhook: data.payload });
   } else {
     console.log(`Unhandled event: ${githubEvent}`);
   }
